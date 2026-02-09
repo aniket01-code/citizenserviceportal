@@ -1,0 +1,197 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Nagrik Seva - Government Utility Portal Design System
+   A clean, accessible design for citizen services
+   All colors in HSL format
+*/
+
+@layer base {
+  :root {
+    /* Core colors - Navy blue government theme */
+    --background: 210 20% 98%;
+    --foreground: 220 40% 13%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 40% 13%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 40% 13%;
+
+    /* Primary - Deep navy blue (trust, government) */
+    --primary: 220 60% 25%;
+    --primary-foreground: 210 40% 98%;
+
+    /* Secondary - Warm amber (energy, action) */
+    --secondary: 38 92% 50%;
+    --secondary-foreground: 220 40% 13%;
+
+    --muted: 210 20% 94%;
+    --muted-foreground: 220 15% 45%;
+
+    --accent: 220 50% 95%;
+    --accent-foreground: 220 60% 25%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 20% 88%;
+    --input: 220 20% 88%;
+    --ring: 220 60% 25%;
+
+    --radius: 0.75rem;
+
+    /* Department colors */
+    --electricity: 45 93% 47%;
+    --electricity-light: 45 93% 95%;
+    --gas: 15 90% 55%;
+    --gas-light: 15 90% 95%;
+    --municipal: 160 60% 40%;
+    --municipal-light: 160 60% 95%;
+    
+    /* Status colors */
+    --success: 142 70% 45%;
+    --success-light: 142 70% 95%;
+    --warning: 38 92% 50%;
+    --warning-light: 38 92% 95%;
+    --info: 200 80% 50%;
+    --info-light: 200 80% 95%;
+    
+    /* Sidebar */
+    --sidebar-background: 220 60% 25%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 38 92% 50%;
+    --sidebar-primary-foreground: 220 40% 13%;
+    --sidebar-accent: 220 50% 30%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 220 50% 35%;
+    --sidebar-ring: 38 92% 50%;
+  }
+
+  .dark {
+    --background: 220 40% 8%;
+    --foreground: 210 40% 98%;
+
+    --card: 220 40% 12%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 220 40% 12%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 38 92% 50%;
+    --primary-foreground: 220 40% 8%;
+
+    --secondary: 220 50% 20%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 220 40% 15%;
+    --muted-foreground: 210 20% 60%;
+
+    --accent: 220 40% 18%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 72% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 30% 22%;
+    --input: 220 30% 22%;
+    --ring: 38 92% 50%;
+    
+    --electricity: 45 93% 47%;
+    --electricity-light: 45 30% 20%;
+    --gas: 15 90% 55%;
+    --gas-light: 15 30% 20%;
+    --municipal: 160 60% 40%;
+    --municipal-light: 160 30% 20%;
+    
+    --success: 142 70% 45%;
+    --success-light: 142 30% 20%;
+    --warning: 38 92% 50%;
+    --warning-light: 38 30% 20%;
+    --info: 200 80% 50%;
+    --info-light: 200 30% 20%;
+    
+    --sidebar-background: 220 40% 10%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 38 92% 50%;
+    --sidebar-primary-foreground: 220 40% 8%;
+    --sidebar-accent: 220 40% 15%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 220 30% 18%;
+    --sidebar-ring: 38 92% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight text-foreground;
+  }
+}
+
+@layer components {
+  /* Department card styles */
+  .dept-card {
+    @apply relative overflow-hidden rounded-xl border-2 bg-card p-6 shadow-sm transition-all duration-300 hover:shadow-lg;
+  }
+  
+  .dept-card-electricity {
+    @apply border-electricity/30 hover:border-electricity hover:bg-electricity-light;
+  }
+  
+  .dept-card-gas {
+    @apply border-gas/30 hover:border-gas hover:bg-gas-light;
+  }
+  
+  .dept-card-municipal {
+    @apply border-municipal/30 hover:border-municipal hover:bg-municipal-light;
+  }
+  
+  /* Status badges */
+  .status-badge {
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-sm font-medium;
+  }
+  
+  .status-submitted {
+    @apply bg-info-light text-info;
+  }
+  
+  .status-in-progress {
+    @apply bg-warning-light text-warning;
+  }
+  
+  .status-resolved {
+    @apply bg-success-light text-success;
+  }
+  
+  /* Large touch targets for accessibility */
+  .touch-target {
+    @apply min-h-[48px] min-w-[48px];
+  }
+  
+  /* Notice cards */
+  .notice-card {
+    @apply flex items-start gap-4 rounded-lg border-l-4 bg-card p-4 shadow-sm;
+  }
+  
+  .notice-urgent {
+    @apply border-l-destructive bg-destructive/5;
+  }
+  
+  .notice-warning {
+    @apply border-l-warning bg-warning-light;
+  }
+  
+  .notice-info {
+    @apply border-l-info bg-info-light;
+  }
+}
